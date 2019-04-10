@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/add/add",
+    "pages/mobile/mobile",
+    "pages/view/view",
+    "pages/user/user",
+    "pages/ulist/ulist",
+    "pages/about/about",
+    "pages/lianx/lianx",
+    "pages/baoming/baoming"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "活动报名",
+    "navigationBarBackgroundColor": "#1E95C8",
+    "backgroundColor": "#EEEEEE",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark"
+  },
+  "tabBar": {
+      "color": "#b7b7b7",
+      "selectedColor": "#1E95C8",
+      "borderStyle": "white",
+      "backgroundColor": "#f5f5f5",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "iconPath": "image/12.png",
+          "selectedIconPath": "image/11.png",
+          "text": "活动"
+        },
+        {
+          "pagePath": "pages/add/add",
+          "iconPath": "image/32.png",
+          "selectedIconPath": "image/31.png",
+          "text": "发布"
+        },
+        {
+          "pagePath": "pages/user/user",
+          "iconPath": "image/42.png",
+          "selectedIconPath": "image/41.png",
+          "text": "个人"
+        }
+      ]
+    }
+}
