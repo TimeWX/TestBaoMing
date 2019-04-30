@@ -1,0 +1,25 @@
+<template name="postItem">
+  <view class="post-container">
+    <navigator url="/pages/index/post-detail/post-detail?id={{item.id}}">
+      <view class="post-user-date">
+        <view class="post-user">
+          <image src="{{headimgurl}}"></image>
+          <text>{{wxname}}</text>
+        </view>
+        <view class="post-date"></view>
+      </view>
+      <text class="post-title">{{item.title}}</text>
+      <view class="post-photo" wx:if="{{item.photo != null}}">
+        <image src="{{picUrl}}{{photo}}" mode="scaleToFill"></image>
+      </view>
+      <view class="post-participants-time">
+        <label class="post-participants">
+          <image src="/image/pl.png" ></image>{{item.plnum}}
+        </label>
+        <label class="post-time">
+          <image src="/image/time.png" ></image>{{item.datetime}}
+        </label>
+      </view>
+    </navigator>
+  </view>
+</template>

@@ -11,7 +11,7 @@ var config = {
   requestUrl: `http://${host}/Huod/`,
 
   // 百度AK填写，用于获取地理位置
-  baiduAk: '123123123123123'
+  baiduAK: 'loMENzUq9k4HVkzQfPVI6oe4kk39Ws6w'
   
 };
 

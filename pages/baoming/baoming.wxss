@@ -44,13 +44,22 @@ page {
 .uploadPics{ width: 20%; height: 135rpx; margin-right: 20rpx;}
 .miaoshu{ padding-bottom: 20rpx}
 
+.miaoshu textarea{
+  font-size: 24rpx;
+}
+
 /* 获取当前位置 */
-.getGps{
+.position{
   width: 92%; background: #FCFCFC; border-top: 2rpx #F5F5F5 solid; border-bottom: 2rpx #ECECEC solid; padding:3% 4%; font-size: 14px; color: #999;
 }
-.getGps label{
+.position label{
   margin-right: 20rpx;
 }
+
+.position text{
+  text-decoration-line: underline;
+}
+
 image.mapIco{
   width: 3%;
   margin-right: 15rpx
@@ -62,12 +71,8 @@ image.mapIco{
   border-bottom: 2rpx #ECECEC solid;
   padding: 24rpx 5%;
 }
-.title label{
-  float: left; color: #666
-}
-.title input{
-  padding-left: 20rpx
-}
+
+
 
 /* 开始结束时间 */
 .ktime{
@@ -81,4 +86,8 @@ image.mapIco{
 }
 .ktime picker{
   flex: 1; color: #333
+}
+
+.title input{
+  font-size: 24rpx;
 }

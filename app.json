@@ -1,5 +1,6 @@
 {
-  "pages":[
+  "pages": [
+   
     "pages/index/index",
     "pages/add/add",
     "pages/mobile/mobile",
@@ -8,40 +9,50 @@
     "pages/ulist/ulist",
     "pages/about/about",
     "pages/lianx/lianx",
-    "pages/baoming/baoming"
+    "pages/baoming/baoming",
+    "pages/index/post-detail/post-detail",
+    "pages/map/map",
+    "pages/maptest/maptest"
+    
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置用于获取发布者的地理位置"
+    }
+  },
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "活动报名",
     "navigationBarBackgroundColor": "#1E95C8",
     "backgroundColor": "#EEEEEE",
     "enablePullDownRefresh": true,
-    "backgroundTextStyle":"dark"
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
-      "color": "#b7b7b7",
-      "selectedColor": "#1E95C8",
-      "borderStyle": "white",
-      "backgroundColor": "#f5f5f5",
-      "list": [
-        {
-          "pagePath": "pages/index/index",
-          "iconPath": "image/12.png",
-          "selectedIconPath": "image/11.png",
-          "text": "活动"
-        },
-        {
-          "pagePath": "pages/add/add",
-          "iconPath": "image/32.png",
-          "selectedIconPath": "image/31.png",
-          "text": "发布"
-        },
-        {
-          "pagePath": "pages/user/user",
-          "iconPath": "image/42.png",
-          "selectedIconPath": "image/41.png",
-          "text": "个人"
-        }
-      ]
-    }
+    "color": "#b7b7b7",
+    "selectedColor": "#1E95C8",
+    "borderStyle": "white",
+    "backgroundColor": "#f5f5f5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/12.png",
+        "selectedIconPath": "image/11.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "iconPath": "image/32.png",
+        "selectedIconPath": "image/31.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "image/42.png",
+        "selectedIconPath": "image/41.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

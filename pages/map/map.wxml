@@ -1,0 +1,9 @@
+<view class="section">
+  <input placeholder="{{value}}" placeholder-style="font-size:18rpx;color:#ccc" focus type="text" bindinput="bindKeyInput" />
+</view>
+<view class="sug_info" wx:for="{{sugDatas}}" wx:for-index="index" wx:for-item="sugData">
+  <view class='content' catchtap='onAddressTap' data-address='{{sugData}}'>
+    <image src="/image/map.png" mode='scaleToFill' />
+    <text>{{sugData}}</text>
+  </view>
+</view>

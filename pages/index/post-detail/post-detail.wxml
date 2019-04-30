@@ -1,0 +1,74 @@
+<!--pages/view/view.wxml-->
+<view class="container">
+
+
+  <view class="title">
+    <text>{{title}}</text>
+  </view>
+
+  <view class="body">
+    <view class="content">
+      <view class='date'>
+        <label>开始时间：</label>
+        <text>{{kdate}}</text>
+      </view>
+      <view class='date'>
+        <label>结束时间：</label>
+        <text>{{jdate}}</text>
+      </view>
+      <view class='date' bindtap='callme' data-tel="{{tel}}">
+        <label>联系咨询：</label>
+        <text bindtap='callmeTap' class="tel">{{tel}} (已认证)</text>
+      </view>
+      <view class='date'>
+        <label>活动地点：</label>
+        <text>{{addres}}</text>
+      </view>
+
+      <view class="content-title">
+        {{content}}
+      </view>
+      <view class="content-photo" wx:if="{{photo != null}}">
+        <image class="poster" src="{{picUrl}}{{photo}}" mode="scaleToFill" />
+      </view>
+    </view>
+
+    <view class="publish-user-time">
+      <view class="publish-user">
+        <image src="{{headimgurl}}"></image>
+        <text>{{wxname}}</text>
+      </view>
+      <view class="publish-time">
+        <text>{{datetime}}</text>
+      </view>
+    </view>
+
+    <view class='position'bindtap="openMap" data-long="{{long}}" data-lat="{{lat}}" data-address="{{address}}">
+      <text>发布于：{{address}}</text>
+      <image src="/image/map.png" mode="widthFix" />
+    </view>
+
+    <view class='signUp'>
+      <button bindtap='signUp'>我要报名</button>
+    </view>
+
+    <view class='userJoin'>
+      <label>报名列表 ( 显示最近报名10人 )</label>
+      <block url="" wx:for="{{gzList}}" wx:key="" wx:for-item="g">
+        <view class='users'>
+          <text class='userName'>[ {{g.datetime}} ] {{g.xingming}}</text>
+          <text class='userTel'>{{g.tels}}</text>
+        </view>
+      </block>
+    </view>
+
+
+  </view>
+
+
+
+
+
+
+
+</view>
