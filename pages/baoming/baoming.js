@@ -116,7 +116,7 @@ Page({
         that.setData({
           loadingHide: true
         });
-      }, 1000)
+      }, 300)
     };
     var success = function(data) {
       wxMarkerData = data.wxMarkerData;
@@ -130,7 +130,7 @@ Page({
         that.setData({
           loadingHide: true
         });
-      }, 1000)
+      }, 300)
     };
     BMap.regeocoding({
       fail: fail,

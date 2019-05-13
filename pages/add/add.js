@@ -1,9 +1,12 @@
 //var app = getApp();
 var config = require('../../utils/config.js');
 var bmap = require('../../utils/bmap-wx.js');
+var util=require('../../utils/util.js');
 var wxMarkerData = [];  
 Page({
   data: {
+    start:'',
+    end:'',
     ak: config.baiduAk, 
     markers: [],    
     longitude:'',   
@@ -17,8 +20,8 @@ Page({
     loadingHide: true,
     loadingText: "位置获取中",
     content:'',
-    kdate: '2017-09-01',
-    jdate: '2017-09-01'
+    kdate:'',
+    jdate:''
   },
 
   kbindDateChange: function (e) {
@@ -128,7 +131,8 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        if(res.data != 0){
+        //判断服务器数据库有无次用户
+        if(res.data != 1){
           wx.navigateTo({
             url: '../mobile/mobile',
           })
@@ -138,7 +142,15 @@ Page({
   },
 
   onLoad:function(){
-    this.getBaiduMap(); 
+    this.getCurrPos();
+    let currDate=util.formatStartDate(new Date());
+    let endDate=util.formatEndDate(new Date());
+    this.setData({
+      start:currDate,
+      end:endDate,
+      kdate:currDate,
+      jdate:currDate
+    }); 
   },
 
   onShow: function(){
@@ -183,50 +195,55 @@ Page({
     })
   },
 
-  clearGps: function(){
-    this.getBaiduMap();
+  //跳转到Map
+  navigationToMap: function () {
+    var that = this;
+    wx.navigateTo({
+      url: '../map/map?value=' + that.data.address + '&longitude=' + that.data.longitude + '&latitude=' + that.data.latitude
+    })
   },
-  getBaiduMap: function (){     
-    var that = this;    
-    that.setData({ loadingHide: false });
-    var BMap = new bmap.BMapWX({     
-        ak: that.data.ak     
-    });    
-    var fail = function(data) { 
-        var errMsg = data.errMsg;
-        if(errMsg == 'getLocation:fail auth deny'){
-          that.setData({  
-            latitude: 0,    
-            longitude: 0,
-            address:'火星网友一枚'
-          })
-        }else{
-          that.setData({
-            latitude: 0,    
-            longitude: 0,
-            address:'火星网友一枚'
-          })
-        }
-        setTimeout(function () {
-          that.setData({ loadingHide: true });
-        }, 1000)  
-    };     
-    var success = function(data) {  
-        wxMarkerData = data.wxMarkerData;
-        that.setData({     
-            markers: wxMarkerData,    
-            latitude: wxMarkerData[0].latitude,    
-            longitude: wxMarkerData[0].longitude,    
-            address: wxMarkerData[0].address,    
-        }); 
-        setTimeout(function () {
-          that.setData({ loadingHide: true });
-        }, 1000)     
-    }; 
-    BMap.regeocoding({     
-        fail: fail,     
-        success: success
-    }); 
+
+  //获取当前位置
+  getCurrPos: function () {
+    var that = this;
+    that.setData({
+      loadingHide: false
+    });
+    //新建百度地图对象
+    var BMap = new bmap.BMapWX({
+      ak: config.baiduAK
+    });
+    var fail = function (data) {
+      var errMsg = data.errMsg;
+      that.setData({
+        latitude: 0,
+        longitude: 0,
+        address: '地址获取失败'
+      })
+      setTimeout(function () {
+        that.setData({
+          loadingHide: true
+        });
+      }, 300)
+    };
+    var success = function (data) {
+      wxMarkerData = data.wxMarkerData;
+      that.setData({
+        markers: wxMarkerData,
+        latitude: wxMarkerData[0].latitude,
+        longitude: wxMarkerData[0].longitude,
+        address: wxMarkerData[0].address,
+      });
+      setTimeout(function () {
+        that.setData({
+          loadingHide: true
+        });
+      }, 300)
+    };
+    BMap.regeocoding({
+      fail: fail,
+      success: success
+    });
   }
 
 })

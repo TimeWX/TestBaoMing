@@ -25,7 +25,7 @@
     <view class='ktime'>
       <label>开始时间</label>
       <view class='picker'>
-        <picker mode="date" value="{{kdate}}" start="2017-09-01" end="2020-09-01" bindchange="kbindDateChange">
+        <picker mode="date" value="{{start}}" start="{{start}}" end="{{end}}" bindchange="kbindDateChange">
           {{kdate}}
         </picker>
       </view>
@@ -35,7 +35,7 @@
     <view class='ktime'>
       <label>结束时间</label>
       <view class='picker'>
-        <picker mode="date" value="{{jdate}}" start="2017-09-01" end="2020-09-01" bindchange="jbindDateChange">
+        <picker mode="date" value="{{start}}" start="{{start}}" end="{{end}}" bindchange="jbindDateChange">
           {{jdate}}
         </picker>
       </view>
@@ -54,7 +54,7 @@
     </view>
 
     <!-- 获取发布位置 -->
-    <view class='getGps' bindtap="clearGps">
+    <view class='getGps' bindtap="navigationToMap">
         <image src="../../image/map.png" class="mapIco" mode="widthFix"></image>
         <label>发布位置</label><text>{{address}}</text>
     </view>
